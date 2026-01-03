@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Bolt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="player-selection" class="player-selection">
+            <h1>Tic-Tac-Toe Bolt</h1>
+            <div class="game-rules">
+                <h2>Game Rules</h2>
+                <p>Tic-Tac-Toe Bolt is similar to regular Tic-Tac-Toe, but with a twist:</p>
+                <ul>
+                    <li>Players take turns placing their marks (O or X) on a 3×3 grid</li>
+                    <li>The goal is to get 3 marks in a row (horizontal, vertical, or diagonal)</li>
+                    <li><strong>Special rule:</strong> After placing your 4th mark, your oldest mark disappears</li>
+                    <li>Each player can have a maximum of 3 marks on the board at any time</li>
+                    <li>Marks disappear after 6 half-moves (3 full turns)</li>
+                    <li>This creates a dynamic game where marks constantly vanish and reappear!</li>
+                </ul>
+            </div>
+            <div id="loading-message" class="loading-message">Initializing game...</div>
+            <div id="player-buttons" class="player-buttons hidden">
+                <button class="player-btn player-o" data-player="O">
+                    <div class="player-mark">O</div>
+                    <span>Play as O</span>
+                </button>
+                <button class="player-btn player-x" data-player="X">
+                    <div class="player-mark">X</div>
+                    <span>Play as X</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="game-container" class="game-container hidden">
+            <canvas id="game-canvas"></canvas>
+            <div class="controls">
+                <div class="info">
+                    <p>Press <kbd>R</kbd> to reset</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="solver.js"></script>
+    <script src="game.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
