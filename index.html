@@ -70,6 +70,7 @@
                 <h2>Game Rules</h2>
                 <p>Tic-Tac-Toe Bolt is similar to regular Tic-Tac-Toe, but with a twist:</p>
                 <ul>
+                    <li><strong>X plays first</strong> (traditional Tic-Tac-Toe rule)</li>
                     <li>Players take turns placing their marks (O or X) on a 3×3 grid</li>
                     <li>The goal is to get 3 marks in a row (horizontal, vertical, or diagonal)</li>
                     <li><strong>Special rule:</strong> After placing your 4th mark, your oldest mark disappears</li>
@@ -94,7 +95,11 @@
                 <h3>Why It's Unbeatable</h3>
                 <p>Since all game states are precomputed, the AI knows the outcome of every possible move sequence. It will never make a mistake that leads to a loss when a draw or win was possible. This makes it a <strong>perfect player</strong> - the best you can hope for is a draw if you play optimally.</p>
                 
-                <p><strong>Challenge yourself:</strong> Can you achieve a draw against this perfect AI? The game's dynamic nature (disappearing marks) adds strategic depth beyond traditional Tic-Tac-Toe, making each game unique and challenging.</p>
+                <h3>AI Difficulty</h3>
+                <p><strong>When the AI plays as X (first player):</strong> The AI will always win or draw. Since X has the advantage of going first, the AI can force a win or at least secure a draw with perfect play.</p>
+                <p><strong>When the AI plays as O (second player):</strong> You have a chance to win! While the AI still plays perfectly, playing as X gives you the first-move advantage. If you play optimally, you can potentially secure a victory against the AI.</p>
+                
+                <p><strong>Challenge yourself:</strong> Can you achieve a draw (or even a win when playing as X) against this perfect AI? The game's dynamic nature (disappearing marks) adds strategic depth beyond traditional Tic-Tac-Toe, making each game unique and challenging.</p>
             </article>
             <div id="loading-message" class="loading-message" aria-live="polite">Initializing game...</div>
             <nav id="player-buttons" class="player-buttons hidden" aria-label="Choose your player">

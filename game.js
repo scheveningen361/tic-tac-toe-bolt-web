@@ -199,7 +199,9 @@ class GameRenderer {
 
         // Highlight winning cells if game is over
         if (this.gameState.gameOver && this.gameState.winner && this.gameState.winningCells.length > 0) {
-            const highlightColor = this.gameState.winner === 'O' ? COLORS.GREEN : COLORS.RED;
+            // Convert system winner to display winner for color selection
+            const displayWinner = this._swapMarkForDisplay(this.gameState.winner);
+            const highlightColor = displayWinner === 'O' ? COLORS.GREEN : COLORS.RED;
             ctx.fillStyle = highlightColor + '66';  // Add transparency
             for (const [row, col] of this.gameState.winningCells) {
                 ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
@@ -223,19 +225,25 @@ class GameRenderer {
             ctx.stroke();
         }
 
-        // Draw marks
+        // Draw marks (swap for display: system O -> display X, system X -> display O)
         for (let row = 0; row < BOARD_SIZE; row++) {
             for (let col = 0; col < BOARD_SIZE; col++) {
-                if (this.gameState.board[row][col] === 'O') {
-                    this.drawO(row, col);
-                } else if (this.gameState.board[row][col] === 'X') {
-                    this.drawX(row, col);
+                const systemMark = this.gameState.board[row][col];
+                const displayMark = this._swapMarkForDisplay(systemMark);
+                if (displayMark === 'X') {
+                    // System O -> Display X
+                    this.drawX(row, col, 'O');
+                } else if (displayMark === 'O') {
+                    // System X -> Display O
+                    this.drawO(row, col, 'X');
                 }
             }
         }
     }
 
-    drawO(row, col) {
+    drawO(row, col, systemMark = 'O') {
+        // systemMark: 'O' or 'X' - the actual system mark type
+        // This function draws an O on screen, but may represent system X
         const ctx = this.ctx;
         const cellSize = this.cellSize;
         const centerX = col * cellSize + cellSize / 2;
@@ -243,7 +251,10 @@ class GameRenderer {
         const radius = cellSize / 3;
 
         const posKey = `${row},${col}`;
-        const vanishIn = this.gameState.oVanishCount.get(posKey);
+        // Get vanish count based on system mark type
+        const vanishIn = systemMark === 'O' 
+            ? this.gameState.oVanishCount.get(posKey)
+            : this.gameState.xVanishCount.get(posKey);
 
         ctx.strokeStyle = COLORS.BLUE;
         ctx.lineWidth = LINE_WIDTH;
@@ -283,7 +294,9 @@ class GameRenderer {
         }
     }
 
-    drawX(row, col) {
+    drawX(row, col, systemMark = 'X') {
+        // systemMark: 'O' or 'X' - the actual system mark type
+        // This function draws an X on screen, but may represent system O
         const ctx = this.ctx;
         const cellSize = this.cellSize;
         const centerX = col * cellSize + cellSize / 2;
@@ -291,7 +304,10 @@ class GameRenderer {
         const offset = cellSize / 3;
 
         const posKey = `${row},${col}`;
-        const vanishIn = this.gameState.xVanishCount.get(posKey);
+        // Get vanish count based on system mark type
+        const vanishIn = systemMark === 'O'
+            ? this.gameState.oVanishCount.get(posKey)
+            : this.gameState.xVanishCount.get(posKey);
 
         ctx.strokeStyle = COLORS.RED;
         ctx.lineWidth = LINE_WIDTH;
@@ -346,6 +362,17 @@ class GameRenderer {
         if (row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE) {
             return [row, col];
         }
+        return null;
+    }
+
+    /**
+     * Swap mark for display: system O -> display X, system X -> display O
+     * This makes it appear that X plays first (traditional Tic-Tac-Toe rule)
+     * while the internal system still uses O-first logic.
+     */
+    _swapMarkForDisplay(mark) {
+        if (mark === 'O') return 'X';
+        if (mark === 'X') return 'O';
         return null;
     }
 }
