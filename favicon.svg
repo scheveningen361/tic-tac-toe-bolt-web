@@ -1,50 +1,25 @@
-<!-- favicon.svg (O smaller, X modest) -->
+<!-- favicon.svg (grid-only) -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Disappearing Tic-Tac-Toe">
   <style>
-    :root { --bg:#ffffff; --fg:#111111; --fade:#777777; }
+    :root { --bg:#ffffff; --fg:#111111; }
     @media (prefers-color-scheme: dark) {
-      :root { --bg:#111111; --fg:#ffffff; --fade:#8a8a8a; }
+      :root { --bg:#111111; --fg:#ffffff; }
     }
   </style>
 
   <!-- Background -->
   <rect x="0" y="0" width="64" height="64" rx="12" fill="var(--bg)"/>
 
-  <!-- Grid -->
+  <!-- 3x3 grid (with generous padding for favicon clarity) -->
   <g stroke="var(--fg)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.95">
-    <path d="M24 10 V54"/>
-    <path d="M40 10 V54"/>
-    <path d="M10 24 H54"/>
-    <path d="M10 40 H54"/>
+    <!-- outer rounded frame -->
+    <rect x="8" y="8" width="48" height="48" rx="9"/>
+
+    <!-- inner grid lines -->
+    <!-- cell size = 16 (8..56), lines at 24 and 40 -->
+    <path d="M24 12 V52"/>
+    <path d="M40 12 V52"/>
+    <path d="M12 24 H52"/>
+    <path d="M12 40 H52"/>
   </g>
-
-  <!-- Marks -->
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2">
-    <!-- X (top-left) - slightly smaller -->
-    <g stroke="var(--fg)">
-      <path d="M13 13 L19 19"/>
-      <path d="M19 13 L13 19"/>
-    </g>
-
-    <!-- O (center) - SMALLER -->
-    <circle cx="32" cy="32" r="3.8" stroke="var(--fg)"/>
-
-    <!-- X (top-right) - slightly smaller -->
-    <g stroke="var(--fg)">
-      <path d="M45 13 L51 19"/>
-      <path d="M51 13 L45 19"/>
-    </g>
-
-    <!-- O (bottom-left) - SMALLER -->
-    <circle cx="16" cy="48" r="3.8" stroke="var(--fg)"/>
-
-    <!-- "disappearing" X (middle-left) - faded & small -->
-    <g stroke="var(--fade)" opacity="0.28">
-      <path d="M13 29 L19 35"/>
-      <path d="M19 29 L13 35"/>
-    </g>
-  </g>
-
-  <!-- subtle frame -->
-  <rect x="3" y="3" width="58" height="58" rx="10" fill="none" stroke="var(--fg)" stroke-width="2" opacity="0.10"/>
 </svg>
