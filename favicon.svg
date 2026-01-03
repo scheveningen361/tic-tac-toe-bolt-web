@@ -1,0 +1,25 @@
+<!-- favicon.svg (grid-only) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Disappearing Tic-Tac-Toe">
+  <style>
+    :root { --bg:#ffffff; --fg:#111111; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#111111; --fg:#ffffff; }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="64" height="64" rx="12" fill="var(--bg)"/>
+
+  <!-- 3x3 grid (with generous padding for favicon clarity) -->
+  <g stroke="var(--fg)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.95">
+    <!-- outer rounded frame -->
+    <rect x="8" y="8" width="48" height="48" rx="9"/>
+
+    <!-- inner grid lines -->
+    <!-- cell size = 16 (8..56), lines at 24 and 40 -->
+    <path d="M24 12 V52"/>
+    <path d="M40 12 V52"/>
+    <path d="M12 24 H52"/>
+    <path d="M12 40 H52"/>
+  </g>
+</svg>
