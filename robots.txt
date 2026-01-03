@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://scheveningen361.github.io/tic-tac-toe-bolt-web/sitemap.xml

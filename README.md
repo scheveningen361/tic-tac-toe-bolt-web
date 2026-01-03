@@ -1,6 +1,12 @@
-# Tic-Tac-Toe Bolt - Web Version
+# Tic-Tac-Toe Bolt - Play Disappearing Tic-Tac-Toe vs Perfect AI
 
-A web-based implementation of Tic-Tac-Toe Bolt vs AI, 100% client-side.
+A web-based implementation of Tic-Tac-Toe Bolt - a dynamic variant where marks disappear after 6 half-moves. Challenge an unbeatable AI opponent powered by retrograde analysis and game theory. 100% client-side, no server required.
+
+**Play online:** [https://scheveningen361.github.io/tic-tac-toe-bolt-web/](https://scheveningen361.github.io/tic-tac-toe-bolt-web/)
+
+## 🎮 What is Tic-Tac-Toe Bolt?
+
+Tic-Tac-Toe Bolt is a strategic variant of the classic Tic-Tac-Toe game with a unique twist: marks disappear after 6 half-moves (3 full turns). This creates a dynamic gameplay where players must constantly adapt their strategy as marks vanish and reappear. The game features a perfect AI opponent that uses retrograde analysis to ensure optimal play.
 
 ## License
 
@@ -86,10 +92,37 @@ Tic-Tac-Toe Bolt is similar to regular Tic-Tac-Toe, but with a twist:
 
 ## Technical Details
 
-- Pure JavaScript (ES6+)
-- Canvas API for rendering
-- No server required - 100% client-side
-- AI solver uses retrograde analysis with Bellman equation for distance calculation
+- **Pure JavaScript (ES6+)** - Modern, fast, and efficient
+- **Canvas API** for rendering - Smooth, responsive graphics
+- **100% Client-side** - No server required, works offline after initial load
+- **Retrograde Analysis** - AI uses backward induction from terminal positions
+- **Bellman Equation** - Fixed-point iteration for accurate distance calculation in game graphs with cycles
+- **Precomputed Database** - All game states and optimal moves pre-calculated for instant AI responses
+- **Game Theory** - Zero-sum game with perfect information, solved using minimax principles
+
+## 🧠 AI Algorithm: Retrograde Analysis
+
+The AI opponent uses **retrograde analysis**, a technique commonly used in chess programming and game theory. Unlike forward-searching algorithms like minimax, retrograde analysis works backwards:
+
+1. **Start from terminal positions** (wins, losses, draws)
+2. **Propagate backwards** to determine optimal outcomes for all reachable states
+3. **Handle cycles** using Bellman equations with fixed-point iteration
+4. **Precompute all positions** - Every possible board state with different vanish counts is analyzed
+
+This ensures the AI is a **perfect player** - it will never lose when a draw or win is possible, and will win as fast as possible when winning is guaranteed.
+
+## 🔍 SEO & Keywords
+
+This project targets keywords including:
+- `disappearing tic-tac-toe`
+- `vanishing tic-tac-toe`
+- `unbeatable ai tic-tac-toe`
+- `retrograde analysis`
+- `game theory`
+- `minimax algorithm`
+- `zero-sum game`
+- `perfect ai opponent`
+- `javascript strategy game`
 
 ## Files
 

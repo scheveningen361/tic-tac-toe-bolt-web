@@ -51,6 +51,46 @@ body {
     margin-right: auto;
 }
 
+.about-game {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    color: #333;
+}
+
+.about-game h2 {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.about-game h3 {
+    font-size: 1.2em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #444;
+}
+
+.about-game p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.about-game ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-game li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
 .game-rules h2 {
     font-size: 1.5em;
     margin-bottom: 15px;
@@ -236,6 +276,24 @@ kbd {
     #game-canvas {
         width: 100%;
         height: auto;
+    }
+    
+    .about-game {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .about-game h2 {
+        font-size: 1.3em;
+    }
+    
+    .about-game h3 {
+        font-size: 1.1em;
+    }
+    
+    .about-game p,
+    .about-game li {
+        font-size: 0.9em;
     }
 }
 

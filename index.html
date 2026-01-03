@@ -3,15 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe Bolt</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Play Tic-Tac-Toe Bolt | Disappearing Tic-Tac-Toe vs Perfect AI</title>
+    <meta name="title" content="Play Tic-Tac-Toe Bolt | Disappearing Tic-Tac-Toe vs Perfect AI">
+    <meta name="description" content="Challenge an unbeatable AI in Tic-Tac-Toe Bolt - a dynamic variant where marks disappear after 6 half-moves. Powered by retrograde analysis and game theory. Free online strategy game.">
+    <meta name="keywords" content="tic-tac-toe, tictactoe, disappearing tic-tac-toe, vanishing tic-tac-toe, tic-tac-toe bolt, unbeatable ai, perfect ai, retrograde analysis, game theory, minimax, zero-sum game, strategy game, puzzle game, online game, javascript game, ai game, impossible tic-tac-toe, free game, play online">
+    <meta name="author" content="Tic-Tac-Toe Bolt">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scheveningen361.github.io/tic-tac-toe-bolt-web/">
+    <meta property="og:title" content="Play Tic-Tac-Toe Bolt | Disappearing Tic-Tac-Toe vs Perfect AI">
+    <meta property="og:description" content="Challenge an unbeatable AI in Tic-Tac-Toe Bolt - a dynamic variant where marks disappear after 6 half-moves. Powered by retrograde analysis and game theory.">
+    <meta property="og:image" content="https://scheveningen361.github.io/tic-tac-toe-bolt-web/favicon.svg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://scheveningen361.github.io/tic-tac-toe-bolt-web/">
+    <meta property="twitter:title" content="Play Tic-Tac-Toe Bolt | Disappearing Tic-Tac-Toe vs Perfect AI">
+    <meta property="twitter:description" content="Challenge an unbeatable AI in Tic-Tac-Toe Bolt - a dynamic variant where marks disappear after 6 half-moves. Powered by retrograde analysis and game theory.">
+    <meta property="twitter:image" content="https://scheveningen361.github.io/tic-tac-toe-bolt-web/favicon.svg">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Game",
+      "name": "Tic-Tac-Toe Bolt",
+      "description": "A dynamic variant of Tic-Tac-Toe where marks disappear after 6 half-moves. Play against a perfect AI opponent powered by retrograde analysis and game theory.",
+      "keywords": "tic-tac-toe, disappearing tic-tac-toe, unbeatable ai, retrograde analysis, game theory, minimax, zero-sum game",
+      "url": "https://scheveningen361.github.io/tic-tac-toe-bolt-web/",
+      "image": "https://scheveningen361.github.io/tic-tac-toe-bolt-web/favicon.svg",
+      "gameLocation": "Online",
+      "gamePlatform": "Web Browser",
+      "applicationCategory": "Game",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "1"
+      }
+    }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div id="player-selection" class="player-selection">
+    <main class="container">
+        <section id="player-selection" class="player-selection" aria-label="Player Selection">
             <h1>Tic-Tac-Toe Bolt</h1>
-            <div class="game-rules">
+            <article class="game-rules">
                 <h2>Game Rules</h2>
                 <p>Tic-Tac-Toe Bolt is similar to regular Tic-Tac-Toe, but with a twist:</p>
                 <ul>
@@ -22,29 +77,47 @@
                     <li>Marks disappear after 6 half-moves (3 full turns)</li>
                     <li>This creates a dynamic game where marks constantly vanish and reappear!</li>
                 </ul>
-            </div>
-            <div id="loading-message" class="loading-message">Initializing game...</div>
-            <div id="player-buttons" class="player-buttons hidden">
-                <button class="player-btn player-o" data-player="O">
-                    <div class="player-mark">O</div>
+            </article>
+            
+            <article class="about-game">
+                <h2>About the AI: Retrograde Analysis & Game Theory</h2>
+                <p>The AI opponent in Tic-Tac-Toe Bolt uses <strong>retrograde analysis</strong>, a powerful technique from game theory and chess programming. Unlike traditional minimax algorithms that search forward, retrograde analysis works backwards from terminal positions (wins, losses, draws) to determine the optimal strategy for every possible game state.</p>
+                
+                <h3>How It Works</h3>
+                <p>This is a <strong>zero-sum game</strong> where one player's gain is the other's loss. The AI:</p>
+                <ul>
+                    <li><strong>Precomputes all game states:</strong> Every possible board configuration with different vanish counts is analyzed</li>
+                    <li><strong>Uses Bellman equations:</strong> For states with cycles, the AI calculates "moves to end" using fixed-point iteration, ensuring consistent distance values even when the game graph contains loops</li>
+                    <li><strong>Selects optimal moves:</strong> From any position, the AI chooses moves that either win fastest (when winning) or lose slowest (when losing), assuming optimal play from both sides</li>
+                </ul>
+                
+                <h3>Why It's Unbeatable</h3>
+                <p>Since all game states are precomputed, the AI knows the outcome of every possible move sequence. It will never make a mistake that leads to a loss when a draw or win was possible. This makes it a <strong>perfect player</strong> - the best you can hope for is a draw if you play optimally.</p>
+                
+                <p><strong>Challenge yourself:</strong> Can you achieve a draw against this perfect AI? The game's dynamic nature (disappearing marks) adds strategic depth beyond traditional Tic-Tac-Toe, making each game unique and challenging.</p>
+            </article>
+            <div id="loading-message" class="loading-message" aria-live="polite">Initializing game...</div>
+            <nav id="player-buttons" class="player-buttons hidden" aria-label="Choose your player">
+                <button class="player-btn player-o" data-player="O" aria-label="Play as O">
+                    <div class="player-mark" aria-hidden="true">O</div>
                     <span>Play as O</span>
                 </button>
-                <button class="player-btn player-x" data-player="X">
-                    <div class="player-mark">X</div>
+                <button class="player-btn player-x" data-player="X" aria-label="Play as X">
+                    <div class="player-mark" aria-hidden="true">X</div>
                     <span>Play as X</span>
                 </button>
-            </div>
-        </div>
+            </nav>
+        </section>
 
-        <div id="game-container" class="game-container hidden">
-            <canvas id="game-canvas"></canvas>
+        <section id="game-container" class="game-container hidden" aria-label="Game Board">
+            <canvas id="game-canvas" aria-label="Tic-Tac-Toe Bolt game board" role="img"></canvas>
             <div class="controls">
                 <div class="info">
                     <p>Press <kbd>R</kbd> to reset</p>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <script src="solver.js"></script>
     <script src="game.js"></script>
